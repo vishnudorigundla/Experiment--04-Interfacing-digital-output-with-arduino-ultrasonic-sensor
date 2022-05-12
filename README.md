@@ -1,9 +1,11 @@
 # EXPERIMENT-NO--05-Distance measurement using Ultrasonic sensor
 
 ## AIM: 
-To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+
+To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied .
  
 ### COMPONENTS REQUIRED:
+
 1.	ultrasonic sensor module HC-SR04
 2.	1 KΩ resistor 
 3.	Arduino Uno 
@@ -12,6 +14,7 @@ To interface an FSR(force sensitive resistor) and scale the output voltage obtai
 
 
 ### THEORY: 
+
 The HC-SR04 ultrasonic sensor uses SONAR to determine the distance of an object just like the bats do. It offers excellent non-contact range detection with high accuracy and stable readings in an easy-to-use package from 2 cm to 400 cm or 1” to 13 feet.
 
 The operation is not affected by sunlight or black material, although acoustically, soft materials like cloth can be difficult to detect. It comes complete with ultrasonic transmitter and receiver module.
@@ -42,6 +45,7 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROCEDURE:
+
 1.	Connect the circuit as per the circuit diagram 
 2.	Connect the board to your computer via the USB cable.
 3.	If needed, install the drivers.
@@ -54,18 +58,48 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 10.	Plot the graph for the output voltage vs the resistance 
 
 
-### PROGRAM 
+### PROGRAM :
+```
+Develped By : D.Vishnu vardhan reddy
+Reference Number: 212221230023
+```
+```
+#define echoPin 9
+#define trigPin 10
+long duration;
+int distance;
+void setup(){
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
+}
+void loop(){
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034/2;
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+}
+```
 
-### Distance vs measurement table 
+# OUTPUT OF THE SIMULTATION :
+
+
+![A](https://user-images.githubusercontent.com/94175324/168077280-58df0a7d-7bd3-4ccf-be7e-91ef46573cf1.png)
+
+
+![B](https://user-images.githubusercontent.com/94175324/168077313-c8a20c5a-a2a9-42cb-b69d-35ef116c1dae.png)
 
 
 
 
+# RESULT :
+Thus the distance value measured using ultrasonic sensor is successfully compleated by using tinkercad software.
 
 
-
-
-### RESULTS
 
 
 
